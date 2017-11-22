@@ -2,79 +2,7 @@
 var mappings = require("./mappings/")
 
 var myapp = module.exports = {
-	// init: function(){
- //            var utf2buck = {};
- //            for (var i in this.buck2utf){
- //                  utf2buck[this.buck2utf[i]] = i;
- //            }
- //            this.utf2buck = utf2buck;
-
-	// 	var utf2bucksafe = {};
-	// 	for (var i in this.buck2utfsafe){
-	// 		utf2bucksafe[this.buck2utfsafe[i]] = i;
-	// 	}
-	// 	this.utf2bucksafe = utf2bucksafe;
-	// },
- //      bw2utf_extended : function(str) {
- //            if(!str){
- //                  console.error("bw2utf: No text were given");
- //                  return "";
- //            }
- //            return str.replace(/./g,function(m){
- //                  var x= myapp.buck2utf[m];
- //                  return !x ? m : x;
- //            });
- //      },
-	// bw2utf : function(str) {
- //            if(!str){
- //                  console.error("bw2utf: No text were given");
- //                  return "";
- //            }
- //            var extended = ["^","#",":","@","\"","[",";",",",".","!","-","+","%","]","_"]
- //            return str.replace(/./g,function(m){
- //                  if(extended.indexOf(m) >= 0)
- //                        return m
- //                  var x= myapp.buck2utf[m];
- //                  return !x ? m : x;
- //            });
- //      },
- //      bw2utfsafe : function(str) {
-	// 	if(!str){
- //                  console.error("bw2utf: No text were given");
- //                  return "";
- //            }
-	// 	return str.replace(/./g,function(m){
-	// 		var x= myapp.buck2utfsafe[m];
-	// 		return !x ? m : x;
-	// 	});
-	// },
- //      utf2bw : function(str) {
- //            if(!str){
- //                  // console.error("utf2bw: No text were given");
- //                  return "";
- //            }
- //            return str.replace(/./g,function(m){
- //                  var x;
- //                  if (!(x = myapp.utf2buck[m]))
- //                        return m;
- //                  else
- //                        return x;
- //            });
- //      },
-	// utf2bwsafe : function(str) {
-	// 	if(!str){
-	// 		// console.error("utf2bw: No text were given");
- //                  return "";
- //            }
-	// 	return str.replace(/./g,function(m){
-	// 		var x;
-	// 		if (!(x = myapp.utf2bucksafe[m]))
-	// 			return m;
-	// 		else
-	// 			return x;
-	// 	});
-	// },
-	general : function(str,type) {
+	convert : function(str,type) {
 		if(!str){
                   // console.error("bw2utf: No text were given");
                   return "";
@@ -112,7 +40,7 @@ if (require.main === module) { // called directly
     fs.createReadStream(argv.f)
       .pipe(es.split("\n"))
       .pipe(es.through(function(data){
-            this.emit("data",myapp.general(data,argv.t)+"\n")
+            this.emit("data",myapp.convert(data,argv.t)+"\n")
             return 
       }))
       .pipe(process.stdout)
@@ -121,6 +49,6 @@ else{
       module.exports = function(type){
       	if(!type)
       		throw new Error("No type of transliteration is given.")
-		return (str)=>{return myapp.general(str,type)}
+		return (str)=>{return myapp.convert(str,type)}
 	}
 }
