@@ -1,0 +1,36 @@
+{
+  "name": "buckwalter-transliteration",
+  "version": "0.7.0",
+  "description": "A small npm module script that transliterates Arabic text using the Buckwalter Transliteration Scheme (of several versions). Useful for NLP experiments where latin script is preferred.",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aosaimy/buckwalter-transliteration.git"
+  },
+  "keywords": [
+    "buckwalter",
+    "transliteration",
+    "arabic",
+    "arnlp",
+    "nlp"
+  ],
+  "author": "Abdulrahman Alosaimy",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/aosaimy/buckwalter-transliteration/issues"
+  },
+  "homepage": "https://github.com/aosaimy/buckwalter-transliteration#readme",
+  "dependencies": {
+    "event-stream": "^3.3.4",
+    "yargs": "^10.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}
