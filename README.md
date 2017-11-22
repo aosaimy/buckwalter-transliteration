@@ -4,7 +4,7 @@ A small npm module script that transliterates Arabic text using the Buckwalter T
 ## Supported Modules
 1. **bw2utf and utf2bw:** Classical Buckwalter transliteration.
 2. **bw2utfsafe and utf2bwsafe:** Safer version of classical Buckwalter transliteration. Instead of symbols, it uses accented latin character. The output is still in UTF8 format.
-3. **qac2utf utf2qac:** An extended version of classical Buckwalter transliteration. As described in corpus.quran.com
+3. **qac2utf and utf2qac:** An extended version of classical Buckwalter transliteration. As described in corpus.quran.com
 
 ## Install
 `npm install aosaimy/buckwalter-transliteration`
@@ -25,8 +25,10 @@ Options:
   ```
 
 ### In code:
-var bt = require('aosaimy/buckwalter-transliteration')('bw2utf')
+```
+var bt = require('buckwalter-transliteration')('bw2utf')
 console.log(bt('muHmd'))
+```
 
 ## Test
 This scripts has its own unit testing. You can add yours to `test/` folder. To run unit tests, run  `npm test`.
